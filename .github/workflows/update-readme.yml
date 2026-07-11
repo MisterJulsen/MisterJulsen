@@ -1,0 +1,57 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # täglich um 03:00 UTC (05:00 in Bayern im Sommer)
+  workflow_dispatch:        # erlaubt manuelles Auslösen über den "Actions"-Tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-age:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Alter berechnen und README aktualisieren
+        env:
+          BIRTHDATE: ${{ secrets.BIRTHDATE }}   # Format: YYYY-MM-DD, z.B. 2001-05-14
+        run: |
+          set -e
+          IFS=- read -r by bm bd <<< "$BIRTHDATE"
+          cy=$(date +%Y); cm=$(date +%m); cd=$(date +%d)
+          age=$((10#$cy - 10#$by))
+          if [ "$((10#$cm))" -lt "$((10#$bm))" ] || { [ "$((10#$cm))" -eq "$((10#$bm))" ] && [ "$((10#$cd))" -lt "$((10#$bd))" ]; }; then
+            age=$((age - 1))
+          fi
+          sed -i -E "s/(<!--AGE-->)[0-9]+(<!--\/AGE-->)/\1${age}\2/" README.md
+
+      - name: Änderungen committen
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update age"
+          file_pattern: README.md
+
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: profile-Ordner sicherstellen
+        run: mkdir -p profile
+
+      - name: Stats SVG laden
+        run: curl -sf "https://github-readme-stats.vercel.app/api?username=MisterJulsen&show_icons=true&hide_border=true&theme=default" -o profile/stats.svg
+
+      - name: Top Languages SVG laden
+        run: curl -sf "https://github-readme-stats.vercel.app/api/top-langs/?username=MisterJulsen&layout=compact&hide_border=true" -o profile/top-langs.svg
+
+      - name: Trophy SVG laden
+        run: curl -sf "https://github-profile-trophy.vercel.app/?username=MisterJulsen&theme=flat&no-frame=true&row=1&column=7" -o profile/trophy.svg
+
+      - name: Änderungen committen
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update stats and trophy"
+          file_pattern: profile/*.svg
