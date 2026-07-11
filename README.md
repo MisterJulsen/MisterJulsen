@@ -7,6 +7,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Location-Bavaria%2C%20Germany-informational?style=for-the-badge&logo=googlemaps&logoColor=white" />
   <img src="https://img.shields.io/badge/Focus-Minecraft%20Modding-2E9EF7?style=for-the-badge&logo=minecraft&logoColor=white" />
+  <a href="https://mrjulsen.net"><img src="https://img.shields.io/badge/Website-mrjulsen.net-2E9EF7?style=for-the-badge&logo=googlechrome&logoColor=white" /></a>
 </p>
 
 <p align="center">
@@ -36,6 +37,7 @@ you climb on, hold tight, and learn mid-flight.”</i>
 - 🔧 Passionate **Minecraft modder**
 - 🚂 Favorite problem to solve: pathfinding & interconnected in-game systems
 - 📝 Favorite languages: Java, C#
+- 🌐 More about me & my projects: **[mrjulsen.net](https://mrjulsen.net)**
 
 ---
 
@@ -142,5 +144,12 @@ you climb on, hold tight, and learn mid-flight.”</i>
 ---
 
 <p align="center">
-<i>🐉 Thanks for stopping by!</i>
+  <a href="https://mrjulsen.net"><img src="https://img.shields.io/badge/Website-mrjulsen.net-2E9EF7?style=for-the-badge&logo=googlechrome&logoColor=white" /></a>
+  <a href="https://discord.mrjulsen.net"><img src="https://img.shields.io/badge/Discord-Mod%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
+</p>
+
+---
+
+<p align="center">
+<i>👋 Thanks for stopping by!</i>
 </p>
