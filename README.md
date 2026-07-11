@@ -134,10 +134,6 @@ you climb on, hold tight, and learn mid-flight.”</i>
 </p>
 
 <p align="center">
-  <img src="./profile/trophy.svg" />
-</p>
-
-<p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=MisterJulsen&theme=github-compact&hide_border=true" />
 </p>
 
